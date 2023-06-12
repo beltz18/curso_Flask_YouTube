@@ -24,5 +24,13 @@
       <li>{{ values['names'][i] }}, {{ values['ages'][i] }}</li>
     {% endfor %}
   </ul>
+
+  <h3>Usuario de sesión</h3>
+  {% if usuario %}
+    <ul>
+      <li><b>Nombre:</b> {{ usuario['name'] }}</li>
+      <li><b>Correo:</b> {{ usuario['email'] }}</li>
+    </ul>
+  {% endif %}
 </body>
 </html>

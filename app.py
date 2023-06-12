@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import *
 
 app = Flask(__name__)
+app.secret_key = '1234andi'
 
 @app.errorhandler(404)
 def err_handler(e):
@@ -9,13 +10,17 @@ def err_handler(e):
 @app.route('/', defaults={'nom': 'Usuario'})
 @app.route('/<nom>')
 def index(nom):
+  usuario = {}
+  if 'user' in session:
+    usuario = session['user']
+  
   nombre = nom
   nombres = ['Andi', 'John', 'Luis']
   dic = {
     'names': ['John', 'Maria', 'Juan'],
     'ages': [25, 22, 21]
   }
-  return render_template('index.html', name=nombre, names=nombres, values=dic)
+  return render_template('index.html', name=nombre, names=nombres, values=dic, usuario=usuario)
 
 @app.route('/clientes', defaults={'cli': 'Cliente 1', 'pro': 'Producto 1'})
 @app.route('/clientes/<cli>/<pro>')
@@ -33,10 +38,12 @@ def register():
   if request.args:
     user['name'] = request.args['nombre']
     user['email'] = request.args['correo']
+    session['user'] = user
 
   if request.method == 'POST':
     user['name'] = request.form['nombre']
     user['email'] = request.form['correo']
+    session['user'] = user
 
   return render_template('register.html', usuario=user)
 
