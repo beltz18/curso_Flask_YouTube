@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de datos</title>
+</head>
+<body>
+  {% if usuario %}
+    <h3>Usuario activo:</h3>
+    <ul>
+      <li><b>Nombre:</b> {{ usuario['name'] }}</li>
+      <li><b>Correo:</b> {{ usuario['email'] }}</li>
+    </ul>
+  {% endif %}
+  <form action="" method="post">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="email" name="correo" placeholder="Correo">
+    <input type="submit" value="Enviar datos">
+  </form>
+</body>
+</html>

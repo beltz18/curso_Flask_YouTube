@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -23,6 +23,22 @@ def clientes(cli, pro):
   cliente = cli
   producto = pro
   return render_template('clientes.html', client=cliente, product=producto)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+  user = {
+    'name': '',
+    'email': ''
+  }
+  if request.args:
+    user['name'] = request.args['nombre']
+    user['email'] = request.args['correo']
+
+  if request.method == 'POST':
+    user['name'] = request.form['nombre']
+    user['email'] = request.form['correo']
+
+  return render_template('register.html', usuario=user)
 
 if __name__ == '__main__':
   app.run()
