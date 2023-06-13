@@ -39,11 +39,13 @@ def register():
     user['name'] = request.args['nombre']
     user['email'] = request.args['correo']
     session['user'] = user
+    return redirect('/')
 
   if request.method == 'POST':
     user['name'] = request.form['nombre']
     user['email'] = request.form['correo']
     session['user'] = user
+    return redirect('/clientes')
 
   return render_template('register.html', usuario=user)
 
