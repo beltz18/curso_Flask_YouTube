@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutoria de Flask</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-</head>
-<body>
+{% extends 'static/base.html' %}
+{% block head %}
+  {% block title %}<title>Tutoria de Flask</title>{% endblock %}
+  {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  {% endblock %}
+{% endblock %}
+
+{% block content %}
   <h1>Hola Mundo</h1>
   <h3>Hola {{ name }}</h3>
 
@@ -32,5 +31,4 @@
       <li><b>Correo:</b> {{ usuario['email'] }}</li>
     </ul>
   {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error Handler 404</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
-</head>
-<body>
+{% extends 'static/base.html' %}
+{% block head %}
+  {% block title %}<title>Tutoria de Flask</title>{% endblock %}
+  {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+  {% endblock %}
+{% endblock %}
+
+{% block content %}
   <h1>Error 404</h1>
-  <h3>La página que buscas no existe</h3>  
-</body>
-</html>
+  <h3>La página que buscas no existe</h3> 
+{% endblock %}
