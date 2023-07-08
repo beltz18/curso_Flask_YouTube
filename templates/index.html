@@ -1,9 +1,9 @@
 {% extends 'static/base.html' %}
+{% import 'macros/import_files.html' as macro %}
+
 {% block head %}
   {% block title %}{{ super() }}{% endblock %}
-  {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-  {% endblock %}
+  {% block styles %}{{ macro.import_stylesheets(sheets) }}{% endblock %}
 {% endblock %}
 
 {% block content %}

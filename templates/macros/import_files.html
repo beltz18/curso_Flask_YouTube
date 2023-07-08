@@ -1,0 +1,6 @@
+{% macro import_stylesheets(sheets) %}
+  {% for sheet in sheets %}
+    {% set file = 'css/'+sheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename=file) }}">
+  {% endfor %}
+{% endmacro %}

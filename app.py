@@ -6,7 +6,9 @@ app.secret_key = '1234andi'
 
 @app.errorhandler(404)
 def err_handler(e):
-  return render_template('404.html', title=data['404']['title'])
+  return render_template('404.html',
+                         title=data['404']['title'],
+                         sheets=data['404']['sheets'])
 
 @app.route('/', defaults={'nom': 'Usuario'})
 @app.route('/<nom>')
@@ -26,7 +28,8 @@ def index(nom):
                          names=nombres,
                          values=dic,
                          usuario=usuario,
-                         title=data['index']['title'])
+                         title=data['index']['title'],
+                         sheets=data['index']['sheets'])
 
 @app.route('/clientes', defaults={'cli': 'Cliente 1', 'pro': 'Producto 1'})
 @app.route('/clientes/<cli>/<pro>')
@@ -36,7 +39,8 @@ def clientes(cli, pro):
   return render_template('clientes.html',
                          client=cliente,
                          product=producto,
-                         title=data['clientes']['title'])
+                         title=data['clientes']['title'],
+                         sheets=data['clientes']['sheets'])
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
