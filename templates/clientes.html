@@ -7,7 +7,11 @@
 {% endblock %}
 
 {% block content %}
+  {% include 'static/header.html' %}
+
   <h1>Hola Clientes</h1>
   <h3>Hola {{ client }}</h3>
   <h3>compraste: {{ product }}</h3>
+
+  {% include 'static/footer.html' %}
 {% endblock %}

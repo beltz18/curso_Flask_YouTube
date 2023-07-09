@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+  {% include 'static/header.html' %}
+
   <h1>Hola Mundo</h1>
   <h3>Hola {{ name }}</h3>
 
@@ -31,4 +33,6 @@
       <li><b>Correo:</b> {{ usuario['email'] }}</li>
     </ul>
   {% endif %}
+
+  {% include 'static/footer.html' %}
 {% endblock %}

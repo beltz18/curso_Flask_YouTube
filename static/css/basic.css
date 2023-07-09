@@ -1,0 +1,39 @@
+header {
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  background-color: #eeffee;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 30px;
+  margin-left: 10px;
+  color: #333;
+}
+
+header ul {
+  display: flex;
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+header ul li {
+  padding: 10px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #eeffee;
+}

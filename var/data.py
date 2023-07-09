@@ -1,11 +1,11 @@
 data = {
   'index': {
     'title': 'Tutoria de Flask - Inicio',
-    'sheets': ['index.css', 'basic.css', 'root.css']
+    'sheets': ['index.css', 'basic.css']
   },
   'clientes': {
     'title': 'Tutoria de Flask - Clientes',
-    'sheets': ['clientes.css']
+    'sheets': ['clientes.css', 'basic.css']
   },
   'register': {
     'title': 'Registro'
